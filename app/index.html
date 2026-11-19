@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA 6 Trophy Guide &amp; Tracker</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5</p>
+      <h1>Leonida Ledger</h1>
+      <p class="tagline">Every trophy, its guide, and your road to the platinum — offline, in your own words.</p>
+    </div>
+    <div class="progress-card" id="progressCard">
+      <p class="big-count"><span id="earnedCount">0</span><span class="of"> / 55</span></p>
+      <p class="progress-label">trophies earned</p>
+      <div class="progress-bar" role="progressbar" aria-label="Trophies earned"><div class="progress-fill" id="progressFill"></div></div>
+      <p class="grade-counts" id="gradeCounts"></p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Guide sections">
+    <button class="tab active" data-view="checklist" type="button">Checklist</button>
+    <button class="tab" data-view="roadmap" type="button">Roadmap</button>
+    <button class="tab" data-view="missables" type="button">Missables</button>
+    <button class="tab" data-view="settings" type="button">Settings &amp; save</button>
+  </nav>
+</header>
+
+<main class="layout">
+  <section class="main-pane" id="mainPane">
+    <div class="toolbar" id="toolbar">
+      <div class="search-wrap">
+        <label for="searchInput">Search trophies</label>
+        <input id="searchInput" type="search" placeholder="Name, mission or keyword…" autocomplete="off">
+      </div>
+      <div class="filters" id="kindFilters" role="group" aria-label="Filter by kind">
+        <button class="chip active" data-kind="all" type="button">All <span class="count" data-count-for="all"></span></button>
+        <button class="chip" data-kind="story" type="button">Story <span class="count" data-count-for="story"></span></button>
+        <button class="chip" data-kind="missable" type="button">Missable <span class="count" data-count-for="missable"></span></button>
+        <button class="chip" data-kind="collectibles" type="button">Collectibles <span class="count" data-count-for="collectibles"></span></button>
+        <button class="chip" data-kind="activities" type="button">Activities <span class="count" data-count-for="activities"></span></button>
+        <button class="chip" data-kind="online" type="button">Online <span class="count" data-count-for="online"></span></button>
+      </div>
+      <div class="toggles">
+        <label class="switch"><input type="checkbox" id="spoilerToggle"> <span>Hide story spoilers</span></label>
+        <label class="switch"><input type="checkbox" id="earnedOnlyToggle"> <span>Unearned only</span></label>
+        <button class="theme-btn" id="themeToggle" type="button">Night theme</button>
+      </div>
+    </div>
+
+    <div id="viewChecklist" class="view">
+      <p class="view-intro">Tick a trophy when you earn it — progress saves in this browser. Click any trophy to open its guide and its sources.</p>
+      <ul class="trophy-list" id="trophyList"></ul>
+      <p class="empty-note" id="emptyNote" hidden>No trophies match this filter. Try another kind, or clear the search.</p>
+    </div>
+
+    <div id="viewRoadmap" class="view" hidden>
+      <h2>Roadmap to the platinum</h2>
+      <p class="view-intro" id="roadmapBuiltFrom"></p>
+      <ol class="roadmap" id="roadmapList"></ol>
+    </div>
+
+    <div id="viewMissables" class="view" hidden>
+      <h2>Missable trophies</h2>
+      <p class="view-intro" id="missableNote"></p>
+      <ul class="trophy-list" id="missableList"></ul>
+    </div>
+
+    <div id="viewSettings" class="view" hidden>
+      <h2>Settings &amp; save</h2>
+      <div class="settings-grid">
+        <section class="settings-card">
+          <h3>Your progress</h3>
+          <p>Progress is saved in this browser (localStorage) and never leaves your device. Export it to a file to keep a backup, or import a file you exported before.</p>
+          <div class="button-row">
+            <button id="exportBtn" type="button">Export progress</button>
+            <button id="importBtn" type="button">Import progress</button>
+            <input id="importFile" type="file" accept="application/json,.json" hidden>
+            <button id="resetBtn" type="button" class="danger">Reset progress</button>
+          </div>
+          <p class="status-line" id="saveStatus" aria-live="polite"></p>
+        </section>
+        <section class="settings-card">
+          <h3>About this guide</h3>
+          <p>Names, descriptions and grades are the official PlayStation 5 list as published on Exophase and PSNProfiles (55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden). Every guide is written for this entry, in our own words, and cites its sources beside it. Where the official description does not name a place or a step, the guide says so instead of inventing one.</p>
+          <p>This guide works offline: every file it loads lives in its own folder, and it makes no network request. It shows no Rockstar logo or official artwork.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <aside class="detail-pane" id="detailPane" aria-label="Trophy guide">
+    <p class="detail-empty">Select a trophy to read its guide and its sources.</p>
+    <div class="detail-body" id="detailBody" hidden></div>
+  </aside>
+</main>
+
+<footer class="colophon">
+  <p>Leonida Ledger — an offline GTA 6 trophy guide &amp; tracker. Official trophy names, descriptions and grades: PlayStation, as listed by Exophase and PSNProfiles. Guides: our own words. No Rockstar logo or artwork. Works with the network off.</p>
+</footer>
+</body>
+</html>
